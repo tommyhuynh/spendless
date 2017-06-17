@@ -6,7 +6,7 @@
 <%= render 'form', expense: @expense %>
 
 
-
+<%= will_paginate @expenses %>
 <table class="striped">
   <thead>
     <tr>
@@ -32,6 +32,7 @@
     <% end %>
   </tbody>
 </table>
+<%= will_paginate @expenses %>
 
 <br>
 

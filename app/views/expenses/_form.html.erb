@@ -1,3 +1,5 @@
+
+
 <%= form_for(expense) do |f| %>
   <% if expense.errors.any? %>
     <div id="error_explanation">
@@ -10,11 +12,21 @@
       </ul>
     </div>
   <% end %>
-
     <label for="expense" style="margin-top:7px"> How did you waste money today? </label>
     <%= f.text_field :expense, :required => true, :class=>"input-field col s6" %>
     <label for="amount" style="margin-top:7px"> How much did you waste? </label>
     <%= f.number_field :amount, :required => true, class: :text_field, step: :any %>
+
+    <br/>
+
+    <%  Category.all.each do |item| %>
+
+      <%= f.radio_button :category_id, item.id %>
+      <%= f.label :category_id, item.name, :value => item.id %>
+      <br/>
+    <% end %>
+    <br/>
     <%= f.submit "Add Expense", class: "btn" %>
 
 <% end %>
+

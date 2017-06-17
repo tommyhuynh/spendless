@@ -17,3 +17,6 @@
 //= require react
 //= require react_ujs
 //= require_tree .
+$(document).on("click", "#createCategoryButton", function(){
+$("newCategory").show()
+});

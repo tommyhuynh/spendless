@@ -1,10 +1,35 @@
+<style>
+  .addCategory
+  {
+      position: relative;
+      top: 7px;
+  }
+</style>
+
+
+<script type="text/javascript">
+  $(document).on("click", "#createCategoryButton", function(){
+      $("#newCategory").show();
+      return false; 
+
+  });
+</script>
+
+
+
 <p id="notice"><%= notice %></p>
 <div class="container">
-<h1>Expenses</h1>
-
-
+<h4>Expenses</h4>
+    <div>
+    <label for="category" style="margin-top:7px"> Category? </label>
+    <a href="" class="addCategory" id="createCategoryButton"><i class="material-icons" style="bottom:10px">add</i></a>
+  </div>
+    <div id="newCategory" style="display:none;"> 
+      <%= render 'categories/form', category: @category %>
+      </div>
+<div style="margin-top:10px">
 <%= render 'form', expense: @expense %>
-
+</div>
 
 
 <table class="striped">

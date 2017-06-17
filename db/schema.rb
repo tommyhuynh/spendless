@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170617063324) do
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.string   "descripton"
-    t.integer  "amount"
+    t.float    "amount"
     t.index ["category_id"], name: "index_expenses_on_category_id"
   end
 

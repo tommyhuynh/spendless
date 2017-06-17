@@ -25,7 +25,7 @@
       <tr>
         <td> <%= expense.expense %> </td>
         <td> <%= expense.amount %></td>
-        <td></td>
+        <td> <%= expense.created_at.strftime("%b %d, %Y") %></td>
         <td></td>
         <td> <%= link_to 'Edit', edit_expense_path(expense) %> </td>
       </tr>

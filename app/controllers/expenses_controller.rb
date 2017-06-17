@@ -5,8 +5,8 @@ class ExpensesController < ApplicationController
   # GET /expenses.json
   def index
     @expense = Expense.new
-    @expenses = Expense.all
     @category = Category.new
+    @expenses = Expense.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
   end
 
   # GET /expenses/1
@@ -30,7 +30,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to '/expense', notice: 'Expense was successfully created.' }
+        format.html { redirect_to '/expenses', notice: 'Expense was successfully created.' }
         format.json { render :show, status: :created, location: @expense }
       else
         format.html { render :new }

@@ -12,9 +12,10 @@
       </ul>
     </div>
   <% end %>
-    <label for="expense" style="margin-top:7px"> How did you waste money today? </label>
+
+    <label for="expense" style="margin-top:7px"> Expense description: </label>
     <%= f.text_field :expense, :required => true, :class=>"input-field col s6" %>
-    <label for="amount" style="margin-top:7px"> How much did you waste? </label>
+    <label for="amount" style="margin-top:7px"> Expense cost: </label>
     <%= f.number_field :amount, :required => true, class: :text_field, step: :any %>
 
     <br/>

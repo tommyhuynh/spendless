@@ -22,18 +22,25 @@
 
   });
 </script>
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+<!-- 
+ <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <%= pie_chart(@category_data) %>
 <%= line_chart @daily_expense_data %>
 <%= geo_chart({'United States'=>"44", 'Germany'=>"23", 'Brazil'=> "22"}) %>
-
+-->
 
 <div class="container">
 <p id="notice"><%= notice %></p>
 <div>
+  <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px"> credit_card </i></a> <b> $<%= @user.current_balance %> </b>
+  <i class="material-icons" style="bottom:10px; color: red; margin-left:10px"> trending_down </i>  <b> $<%= @expense_this_week %> </b>
+  <br/>
+<!-- 
+  
   <p>Current Projected Balance: <%= @user.current_balance %></p>
-  <p>Total spent this week: <%= @expense_this_week %></p>
-  <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px">edit</i></a>
+  <p>Total spent this week: <%= @expense_this_week %></p> -->
+<!--   <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px">edit</i></a> -->
 </div>
 <div id="editBalanace" style="display:none;">
   <%= render 'users/form', user: @user %>
@@ -71,9 +78,9 @@
       <tr>
         <td> <%= expense.expense %></td>
         <% if expense.gains == true%>
-          <td> <font color="green"><%= expense.amount %></font> </td>
+          <td> <font color="green"><b> <%= expense.amount %> </b> </font> </td>
         <% else %>
-          <td> <font color="red"><%= expense.amount %></font> </td>
+          <td> <font color="#F1948A"><b> <%= expense.amount %></b> </font> </td>
         <% end %>
         <td> <%= expense.created_at.strftime("%b %d, %Y") %></td>
         <td>

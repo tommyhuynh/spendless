@@ -13,7 +13,12 @@
 <script type="text/javascript">
   $(document).on("click", "#createCategoryButton", function(){
       $("#newCategory").show();
-      return false; 
+      return false;
+
+  });
+  $(document).on("click", "#editBalanceButton", function(){
+      $("#editBalanace").show();
+      return false;
 
   });
 </script>
@@ -22,15 +27,23 @@
 
 <div class="container">
 <p id="notice"><%= notice %></p>
+<div>
+  <p>Current Projected Balance: <%= @user.current_balance %></p>
+  <p>Total spent this week: <%= @expense_this_week %></p>
+  <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px">edit</i></a>
+</div>
+<div id="editBalanace" style="display:none;">
+  <%= render 'users/form', user: @user %>
+</div>
 
 <h4>Expenses</h4>
     <div>
-    <label for="category" style="margin-top:7px"> Category? </label>
-    <a href="" class="addCategory" id="createCategoryButton"><i class="material-icons" style="bottom:10px">add</i></a>
-  </div>
-    <div id="newCategory" style="display:none;"> 
+      <label for="category" style="margin-top:7px"> Category? </label>
+      <a href="" class="addCategory" id="createCategoryButton"><i class="material-icons" style="bottom:10px">add</i></a>
+    </div>
+    <div id="newCategory" style="display:none;">
       <%= render 'categories/form', category: @category %>
-      </div>
+    </div>
 <div style="margin-top:10px">
 <%= render 'form', expense: @expense %>
 </div>
@@ -53,10 +66,14 @@
     <% @expenses.each do |expense| %>
 
       <tr>
-        <td> <%= expense.expense %> </td>
-        <td> <%= expense.amount %></td>
+        <td> <%= expense.expense %></td>
+        <% if expense.gains == true%>
+          <td> <font color="green"><%= expense.amount %></font> </td>
+        <% else %>
+          <td> <font color="red"><%= expense.amount %></font> </td>
+        <% end %>
         <td> <%= expense.created_at.strftime("%b %d, %Y") %></td>
-        <td> 
+        <td>
           <% if expense.category_id != nil %>
             <%= Category.find_by(id: expense.category_id).name %>
           <% end %>

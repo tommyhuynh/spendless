@@ -4,9 +4,17 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
+    if User.count < 1
+      @user = User.new
+      @user.current_balance = 0.0
+      @user.save
+    else
+      @user = User.all.first
+    end
+    @expense_this_week = Expense.where(:created_at => Time.now.beginning_of_week..Time.now).sum("amount")
     @expense = Expense.new
     @category = Category.new
-    @expenses = Expense.paginate(:page => params[:page], :per_page => 5).order("created_at DESC")
+    @expenses = Expense.paginate(:page => params[:page], :per_page => 5).where(:created_at => 30.days.ago..Time.now).order("created_at DESC")
   end
 
   # GET /expenses/1
@@ -27,6 +35,13 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    @user = User.all.first
+    if @expense.gains
+      @user.current_balance = @user.current_balance + @expense.amount
+    else
+      @user.current_balance = @user.current_balance - @expense.amount
+    end
+    @user.save
 
     respond_to do |format|
       if @expense.save
@@ -72,6 +87,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.fetch(:expense, {}).permit(:expense, :cost, :date, :category_id, :amount)
+      params.fetch(:expense, {}).permit(:expense, :cost, :date, :category_id, :amount, :gains)
     end
 end

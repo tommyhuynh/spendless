@@ -11,7 +11,7 @@ class ExpensesController < ApplicationController
     else
       @user = User.all.first
     end
-    @expense_this_week = Expense.where(:created_at => Time.now.beginning_of_week..Time.now).sum("amount")
+    @expense_this_week = Expense.where(:created_at => Time.now.beginning_of_week..Time.now, :gains => false).sum("amount")
     @expense = Expense.new
     @category = Category.new
     category = Category.all

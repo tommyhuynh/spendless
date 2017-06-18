@@ -23,7 +23,7 @@
   });
 </script>
 
-<!-- 
+<!--
  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <%= pie_chart(@category_data) %>
 <%= line_chart @daily_expense_data %>
@@ -36,8 +36,8 @@
   <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px"> credit_card </i></a> <b> $<%= @user.current_balance %> </b>
   <i class="material-icons" style="bottom:10px; color: red; margin-left:10px"> trending_down </i>  <b> $<%= @expense_this_week %> </b>
   <br/>
-<!-- 
-  
+<!--
+
   <p>Current Projected Balance: <%= @user.current_balance %></p>
   <p>Total spent this week: <%= @expense_this_week %></p> -->
 <!--   <a href="" id="editBalanceButton"><i class="material-icons" style="bottom:10px">edit</i></a> -->

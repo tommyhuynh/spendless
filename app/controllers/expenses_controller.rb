@@ -75,6 +75,13 @@ class ExpensesController < ApplicationController
   # DELETE /expenses/1
   # DELETE /expenses/1.json
   def destroy
+    @user = User.all.first
+    if @expense.gains
+      @user.current_balance = @user.current_balance - @expense.amount
+    else
+      @user.current_balance = @user.current_balance + @expense.amount
+    end
+    @user.save
     @expense.destroy
     respond_to do |format|
       format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }

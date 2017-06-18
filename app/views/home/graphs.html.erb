@@ -1,5 +1,9 @@
-<div class="container">
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 	<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<a href="/"><i class="material-icons" style="left:50px; top:10px; color: green; position:absolute"> view_list </i> </a>
+
+<div class="container">
+
 	<%= pie_chart(@category_data) %>
 	<%= line_chart @daily_expense_data %>
 	<%= geo_chart({'United States'=>"44", 'Germany'=>"23", 'Brazil'=> "22"}) %>

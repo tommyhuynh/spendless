@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/index'
+  get 'graphs', to: 'home#graphs'
   resources :expenses
   root 'expenses#index'
   resources :categories

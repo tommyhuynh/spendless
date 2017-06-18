@@ -12,18 +12,23 @@
 	<div class="carousel carousel-slider center" data-indicators="true">
 
     <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center;"> Last Week </p> 
- 	</a> 
-    <a class="carousel-item"><%= pie_chart(@category_data) %> 
-      <p style="text-align:center"> Last Month </p> 
-
+      <p style="text-align:center;"> This Week </p>
+ 	  </a>
+    <a class="carousel-item"><%= pie_chart(@category_data) %>
+      <p style="text-align:center;"> Last Week </p>
     </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %> 
-      <p style="text-align:center"> Last Year </p> 
+    <a class="carousel-item"><%= pie_chart(@category_data) %>
+      <p style="text-align:center"> This Month </p>
+    </a>
+    <a class="carousel-item"><%= pie_chart(@category_data) %>
+      <p style="text-align:center"> Last Month </p>
+    </a>
+    <a class="carousel-item"><%= pie_chart(@category_data) %>
+      <p style="text-align:center"> Last Year </p>
 
    </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %> 
-      <p style="text-align:center"> All Time </p> 
+    <a class="carousel-item"><%= pie_chart(@category_data) %>
+      <p style="text-align:center"> All Time </p>
 
     </a>
   </div>
@@ -31,18 +36,18 @@
 	<div class="carousel carousel-slider center" data-indicators="true">
 
     <a class="carousel-item"><%= line_chart @daily_expense_data %>
-      <p style="text-align:center;"> Last Week </p> 
- 	</a> 
-    <a class="carousel-item"><%= line_chart @daily_expense_data %> 
-      <p style="text-align:center"> Last Month </p> 
+      <p style="text-align:center;"> Last Week </p>
+ 	</a>
+    <a class="carousel-item"><%= line_chart @daily_expense_data %>
+      <p style="text-align:center"> Last Month </p>
 
     </a>
     <a class="carousel-item"><%= line_chart @daily_expense_data %>
-      <p style="text-align:center"> Last Year </p> 
+      <p style="text-align:center"> Last Year </p>
 
    </a>
     <a class="carousel-item"><%= line_chart @daily_expense_data %>
-      <p style="text-align:center"> All Time </p> 
+      <p style="text-align:center"> All Time </p>
 
     </a>
   </div>

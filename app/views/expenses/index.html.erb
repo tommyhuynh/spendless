@@ -33,7 +33,6 @@
 
 
 
-<%= will_paginate @expenses %>
 <table class="striped">
   <thead>
     <tr>
@@ -53,7 +52,11 @@
         <td> <%= expense.expense %> </td>
         <td> <%= expense.amount %></td>
         <td> <%= expense.created_at.strftime("%b %d, %Y") %></td>
-        <td></td>
+        <td> 
+          <% if expense.category_id != nil %>
+            <%= Category.find_by(id: expense.category_id).name %>
+          <% end %>
+         </td>
         <td> <%= link_to 'Delete', expense, method: :delete, data: { confirm: 'Are you sure?' } %> </td>
       </tr>
     <% end %>

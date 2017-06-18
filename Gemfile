@@ -12,6 +12,8 @@ gem 'will_paginate'
 gem 'materialize-sass'
 gem 'material_icons'
 gem "react-rails"
+gem "chartkick"
+gem 'groupdate'
 
 
 group :development, :test do

@@ -1,3 +1,4 @@
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -17,6 +18,4 @@
 //= require react
 //= require react_ujs
 //= require_tree .
-$(document).on("click", "#createCategoryButton", function(){
-$("newCategory").show()
-});
+//= require chartkick

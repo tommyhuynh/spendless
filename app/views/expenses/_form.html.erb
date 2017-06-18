@@ -26,8 +26,16 @@
       <%= f.label :category_id, item.name, :value => item.id %>
       <br/>
     <% end %>
+
+    <br/>
+    <p style="margin-top:7px"> <strong>Expense or Profit? </strong></p>
+    <%= f.radio_button :gains, false %>
+    <%= f.label :gains, 'Expense', :value => false %>
+    <%= f.radio_button :gains, true %>
+    <%= f.label :gains, 'Profit', :value => true %>
+
+    <br/>
     <br/>
     <%= f.submit "Add Expense", class: "btn" %>
 
 <% end %>
-

@@ -1,5 +1,6 @@
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <a href="/"><i class="material-icons" style="left:50px; top:10px; color: green; position:absolute"> view_list </i> </a>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
@@ -9,15 +10,14 @@
 </script>
 
 <div class="container">
-	<div class="carousel carousel-slider center" data-indicators="true">
 
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
+    <a><%= pie_chart(@category_data_this_week) %>
       <p style="text-align:center;"> This Week </p>
  	  </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
+    <a><%= pie_chart(@category_data_last_week) %>
       <p style="text-align:center;"> Last Week </p>
     </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
+    <!-- <a class="carousel-item"><%= pie_chart(@category_data) %>
       <p style="text-align:center"> This Month </p>
     </a>
     <a class="carousel-item"><%= pie_chart(@category_data) %>
@@ -28,7 +28,7 @@
 
    </a>
     <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center"> All Time </p>
+      <p style="text-align:center"> All Time </p> -->
 
     </a>
   </div>

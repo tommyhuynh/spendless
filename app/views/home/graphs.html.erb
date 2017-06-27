@@ -11,42 +11,30 @@
 
 <div class="container">
 	<h5 style="text-align: center"> Comparison Charts </h5>
-    <a><%= pie_chart(@this_week_category_data) %>
-      <p style="text-align:center;"> This Week </p>
+    <a>
+      <p style="text-align:center;"><strong>This Week</strong></p>
+      <p style="text-align:center;">Total: $<%= @expense_this_week %></p>
+      <%= pie_chart(@this_week_category_data) %>
  	  </a>
 
 
-    <a><%= pie_chart(@last_week_category_data) %>
-      <p style="text-align:center;"> Last Week </p>
-    </a>
-    <!-- <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center"> This Month </p>
-    </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center"> Last Month </p>
-    </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center"> Last Year </p>
+    <a>
+      <p style="text-align:center;"><strong>Last Week</strong></p>
+      <p style="text-align:center;">Total: $<%= @expense_last_week %></p>
+      <%= pie_chart(@last_week_category_data) %>
+ 	  </a>
 
-   </a>
-    <a class="carousel-item"><%= pie_chart(@category_data) %>
-      <p style="text-align:center"> All Time </p> -->
+	<div class="center" data-indicators="true">
 
-    </a>
-
-	<div class="carousel carousel-slider center" data-indicators="true">
-
-    <a class="carousel-item"><%= line_chart @daily_expense_data %>
+    <a>
       <p style="text-align:center;"> Daily Expense </p>
- 	</a>
-    <a class="carousel-item"><%= column_chart @weekly_expense_data %>
-      <p style="text-align:center"> Weekly Expense </p>
-
+      <%= column_chart @daily_expense_data %>
     </a>
-    <a class="carousel-item"><%= column_chart @monthly_expense_data %>
-      <p style="text-align:center"> Last Year </p>
+    <a>
+      <p style="text-align:center"> Weekly Expense </p>
+      <%= column_chart @weekly_expense_data %>
+    </a>
 
-   </a>
    </div>
 
 	<h5 style="text-align: center"> All Time Charts </h5>

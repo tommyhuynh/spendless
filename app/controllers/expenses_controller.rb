@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
     category = Category.all
     @category_data = category.map{|c| [c.name,c.expenses.sum("amount")]}.to_h
     @daily_expense_data = Expense.group_by_day(:created_at).sum("amount")
-    @expenses = Expense.paginate(:page => params[:page], :per_page => 5).where(:created_at => 30.days.ago..Time.now).order("created_at DESC")
+    @expenses = Expense.paginate(:page => params[:page], :per_page => 10).where(:created_at => 30.days.ago..Time.now).order("created_at DESC")
   end
 
   # GET /expenses/1

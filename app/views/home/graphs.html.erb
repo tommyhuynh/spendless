@@ -37,33 +37,10 @@
 
    </div>
 
-	<h5 style="text-align: center"> All Time Charts </h5>
-
-    <a><%= pie_chart(@all_time_category_data) %>
-      <p style="text-align:center;"> All Time </p>
-    </a>
-
-       <a><%= line_chart(@category_multiseries) %>
-      <p style="text-align:center;"> All Time </p>
-    	</a>
-<!--   <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#lastweek">Last Week</a></li>
-        <li class="tab col s3"><a href="#lastmonth">Last Month</a></li>
-        <li class="tab col s3"><a href="#lastyear">Last Year</a></li>
-        <li class="tab col s3"><a href="#alltime">All Time</a></li>
-      </ul>
-    </div>
-    <div id="lastweek" class="col s12">  	 </div>
-    <div id="lastmonth" class="col s12"> 	 <%= pie_chart(@category_data) %> </div>
-    <div id="lastyear" class="col s12"><%= pie_chart(@category_data) %> </div>
-    <div id="alltime" class="col s12"><%= pie_chart(@category_data) %></div>
-  </div> -->
-
-	<!-- <%= line_chart @daily_expense_data %>
-	<%= geo_chart({'United States'=>"44", 'Germany'=>"23", 'Brazil'=> "22"}) %>
-	-->
+     <a>
+       <p style="text-align:center;"> Categories Timeseries </p>
+       <%= line_chart(@category_multiseries) %>
+     </a>
   </div>
 
 </div>

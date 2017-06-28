@@ -26,7 +26,7 @@ class HomeController < ApplicationController
     @weekly_expense_data = Expense.where(gains:false).group_by_week(:created_at).sum("amount")
     @monthly_expense_data = Expense.where(gains:false).group_by_month(:created_at).sum("amount")
 
-    category_multi = Category.all.where(:created_at => Time.now.last_week.beginning_of_week..Time.now.end_of_week)
+    category_multi = Category.where(:created_at => Time.now.last_week.beginning_of_week..Time.now.end_of_week).all
   	@category_multiseries = category_multi.map {|category| {name: category_multi.name, data: category_multi.expenses.group_by_day(:created_at).sum("amount")}}
 
 

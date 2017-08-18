@@ -14,14 +14,14 @@
     <a>
       <p style="text-align:center;"><strong>This Week</strong></p>
       <p style="text-align:center;">Total: $<%= @expense_this_week %></p>
-      <%= pie_chart(@this_week_category_data) %>
+      <%= pie_chart(@this_week_pie_chart) %>
  	  </a>
 
 
     <a>
       <p style="text-align:center;"><strong>Last Week</strong></p>
       <p style="text-align:center;">Total: $<%= @expense_last_week %></p>
-      <%= pie_chart(@last_week_category_data) %>
+      <%= pie_chart(@last_week_pie_chart) %>
  	  </a>
 
 	<div class="center" data-indicators="true">

@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
     category = Category.all
     @category_data = category.map{|c| [c.name,c.expenses.sum("amount")]}.to_h
     @daily_expense_data = Expense.group_by_day(:created_at).sum("amount")
-    @expenses = Expense.paginate(:page => params[:page], :per_page => 10).where(:created_at => 30.days.ago..Time.now).order("created_at DESC")
+    @expenses = Expense.paginate(:page => params[:page], :per_page => 10).where(:date => 30.days.ago..Time.now).order("date DESC")
   end
 
   # GET /expenses/1
@@ -38,6 +38,10 @@ class ExpensesController < ApplicationController
   # POST /expenses.json
   def create
     @expense = Expense.new(expense_params)
+    if @expense.date == nil
+      @expense.date = Time.now
+    end
+
     @user = User.all.first
     if @expense.gains
       @user.current_balance = @user.current_balance + @expense.amount
@@ -97,6 +101,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.fetch(:expense, {}).permit(:expense, :cost, :date, :category_id, :amount, :gains)
+      params.require(:expense).permit(:expense, :cost, :category_id, :amount, :gains, :date, :descripton)
     end
 end
